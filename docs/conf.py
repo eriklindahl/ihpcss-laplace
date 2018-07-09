@@ -28,7 +28,6 @@ version = u''
 # The full version, including alpha/beta/rc tags
 release = u'0.1'
 
-
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -75,7 +74,7 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'classic'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -98,6 +97,13 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "eriklindahl" # Username
+    "github_repo": "ihpcss-engineering-example" # Repo name
+    "github_version": "master", # Version
+    "conf_py_path": ".", # Path in the checkout to the docs root
+}
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
