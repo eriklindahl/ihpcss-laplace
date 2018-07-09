@@ -9,6 +9,13 @@ cmake_minimum_required(VERSION 2.8)
 # We want a name
 project(Laplace)
 
-# Build the binary 'laplace' from the source file (now renamed to be a c++ source)
-add_executable(laplace laplace_serial.cpp)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# Use GNUInstallDirs to set paths on multiarch systems.
+include(GNUInstallDirs)
+
+add_subdirectory(src)
+
 
