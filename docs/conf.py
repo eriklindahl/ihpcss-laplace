@@ -19,8 +19,8 @@
 # -- Project information -----------------------------------------------------
 
 project = u'laplace'
-copyright = u'2018, Erik Lindahl'
-author = u'Erik Lindahl'
+copyright = u'2014-2018, John Urbanic & Erik Lindahl'
+author = u'John Urbanic, Erik Lindahl'
 
 # The short X.Y version
 version = u''
