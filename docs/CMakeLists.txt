@@ -1,4 +1,3 @@
-find_package(PythonInterp)
 find_package(Sphinx)
 find_package(LATEX)
 
@@ -39,3 +38,6 @@ if(SPHINX_FOUND)
     endif(LATEX_FOUND)
 
 endif(SPHINX_FOUND)
+
+
+add_subdirectory(doxygen)

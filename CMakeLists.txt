@@ -4,12 +4,13 @@
 #
 
 # Make sure we don't have a pre-historic CMake version
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
+# Enable policy 0048 to allow setting version with the project command
+set(CMP0048 NEW)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-# We want a name
-project(Laplace)
+project(Laplace VERSION 0.1)
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
