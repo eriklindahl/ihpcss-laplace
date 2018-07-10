@@ -36,7 +36,7 @@ which we can simplify into (note how h disappears)
 
 .. math:: u_{i,j} = 0.25 \left( u_{i,j-1} + u_{i,j+1} + u_{i-1,j} + u_{i+1,j} \right).
 
-.. image:: /_static/grid\_elements.png
+.. image:: /_static/grid_elements.png
     :scale: 50%
 
 Since this has to hold for every element in the grid, we need to iterate over the
