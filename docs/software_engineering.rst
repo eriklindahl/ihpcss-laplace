@@ -58,7 +58,9 @@ If you have ever compiled any Unix tool from source, you are likely
 familiar with the ``./configure && make && make install`` combo. Build
 configuration tools like this check your system (e.g. compiler version,
 libraries, what type of build you want, etc) and set up the makefiles
-to work for your specific system.
+to work for your specific system. They also provide a central location
+where you can set things like the version of your project, and then
+generate appropriate configuration files for other tools you use.
 
 We prefer a slightly more modern system called CMake (http://cmake.org),
 which also has the advantage that it works on Windows and it comes with
@@ -90,7 +92,7 @@ You can set such variables on the command line:
 and you will get a slightly more user-friendly interface with a list of
 the available options. Rumor has it there are even truly graphical
 frontends to cmake, but since you are a hardcore programmer you are 
-probably not interested in that!
+probably not interested in that.
 
 The preset CMake configuration is extreme overkill for the Laplace solver.
 When you only have a single source file, the only thing needed is really
@@ -101,6 +103,20 @@ so it usually pays off to have a clear strategy for how to organize both your
 own code and all the other stuff we pull in. We will do this below, but first
 we need to describe a couple of the other tools we will use.
 
+By default, CMake will hide most of the build output. If you like to see it,
+you can use a command like ``make VERBOSE=1``. For large projects you can also
+speed up the build by using multiple compiler threads (this assumes you have
+many independent source files to compile) with the argument ``-j N``, where N
+is the number of parallel jobs to use. Compilers usually benefit from
+SMT/hyperthreading, so you can try number up to twice the number of cores you
+have. I like to have 128 threads on my 64-core machine working on 
+compiling my large code! 
+
+In particular if you are a beginner it is likely most convenient to use
+CMake in the default way described above, but one additional feature that
+you might want to try out is that CMake can generate build makefiles for a large
+number of build systems, for instance the command-line ninja tool for Linux,
+Microsoft Visual Studio, or Apple's Xcode.
 
 Travis Continuous Integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -196,8 +212,7 @@ Code Documentation with Doxygen
 While Sphinx provides a way to write manual high-level documentation, the goal
 of Doxygen is to automatically parse your code and generate documentation about
 every single public class, interface, function, and generate webpages where you
-can just click an argument to get more information about the type. CMake will
-look for doxygen, and 
+can just click an argument to get more information about the type.
 
 If you have the right software installed, Doxygen can also generate class
 diagrams of your C++ classes so you can see how they depend on each other, and
@@ -207,9 +222,15 @@ yourself, note that you need PNG support, which is unfortunately a bit difficult
 to enable on some systems - it might be easiest to download a binary version
 instead.
 
-We have integrated Doxygen support in CMake, so if Doxygen is found, you can
-build this documentation by simply issuing ``make doxygen``. The resulting
-output will be available in the (usual) output directory, under 
+If you were using Doxygen in stand-alone mode, you would have to
+edit the configuration file every time the project version changed and/or to
+alter settings like whether the ``dot`` tool is available, but we handle all this
+with CMake, where we have fully integrated Doxygen support.
+There is an input template file (Doxyfile.cmakein) with a couple
+of variables that will be replaced by their CMake values, and then we write out
+the Doxyfile configuration file that is actually used by doxygen.
+To generate the source code documentation, simply issue ``make doxygen``.
+The resulting output will be available in the (usual) output directory, under 
 ``docs/doxygen/html/index.html``, and there are also LaTeX files if you
 want to integrate it with your manual or something.
 
