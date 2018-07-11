@@ -22,4 +22,4 @@
 
 #cmakedefine01 HAVE_OPENACC
 
-#cmakedefine OPENACC_VERSION @OPENACC_VERSION@
+#cmakedefine OPENACC_VERSION @OpenACC_CXX_VERSION@
