@@ -17,5 +17,9 @@ add_custom_target(check
                   USES_TERMINAL VERBATIM
                   DEPENDS tests)
 
+configure_file(config.h.cmakein config.h)
+
 
 add_subdirectory(laplace)
+
+

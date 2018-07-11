@@ -1,0 +1,22 @@
+
+//
+// Project configuration settings.
+//
+// This file should never be included in any (installed) headers, only
+// internal implementation cpp files. The reason for this is that the
+// headers define interfaces, and if your interfaces depend on compile
+// settings you do not have any well-defined interface...
+
+//
+// By using cmakedefine01 for binary settings, each setting will always be
+// defined, and the only question is whether it is 0 (disabled) or
+// 1 (enabled). This avoids silent bugs when you make a typo an inadvertently
+// check whether HAVE_OPENNP is defined instead of HAVE_OPENMP. When we check
+// for the value, the compiler will warn if it is not defined.
+
+#cmakedefine PROJECT_VERSION @PROJECT_VERSION@
+
+#cmakedefine PROJECT_VERSION_STRING "@PROJECT_VERSION_STRING@"
+
+#cmakedefine01 HAVE_OPENMP
+
