@@ -118,6 +118,41 @@ you might want to try out is that CMake can generate build makefiles for a large
 number of build systems, for instance the command-line ninja tool for Linux,
 Microsoft Visual Studio, or Apple's Xcode.
 
+Working With CMake
+^^^^^^^^^^^^^^^^^^
+
+CMake is a very flexible tool that can be used in a ton of different ways,
+but there are a couple of tips that are worth considering. For a typical 
+development project, you might have a need both for a debug build to catch
+bugs, a release build with full optimization (that can be slower to compile),
+and maybe also a release build reasonably high optimization combined with
+debug symbols. 
+
+CMake handles this with the variable ``CMAKE_BUILD_TYPE``, whose default 
+setting is ``Release``. However, rather than erasing your build and starting
+from scratch when you need to change it, you can create a separate directory
+for each type of build. Go to each of those directories and configure CMake
+with e.g. ``Release``, ``Debug``, and ``RelWithDebInfo``. Similarly, you
+can have parallel directories corresponding e.g. to your OpenACC vs. OpenMP
+builds. If you now change one file, you just have to type ``make`` in each
+such directory, and only the relevant file has to be recompiled and re-linked.
+
+This separation is also used for the compiler flags. CMake uses one variable
+(``CMAKE_CXX_FLAGS``) for options that are *not* related to the debug or 
+optimization level (where you e.g. add a flag to enable OpenMP), and then
+separate variables corresponding to each build type (where optimization flags go):
+
+* ``CMAKE_CXX_FLAGS_RELEASE``
+* ``CMAKE_CXX_FLAGS_DEBUG``
+* ``CMAKE_CXX_FLAGS_RELWITHDEBINFO``
+* etc.
+
+CMake should make reasonable (actually pretty good) default choices, but you can also set variables manually when invoking CMake. For instance, to choose the Intel C++ compiler and enable FMA, we could do
+
+``cmake -DCXX=icc -DCMAKE_CXX_FLAGS="-mfma" ../ihpcss-laplace``
+
+
+
 Travis Continuous Integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
