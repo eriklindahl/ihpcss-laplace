@@ -20,3 +20,6 @@
 
 #cmakedefine01 HAVE_OPENMP
 
+#cmakedefine01 HAVE_OPENACC
+
+#cmakedefine OPENACC_VERSION @OPENACC_VERSION@
