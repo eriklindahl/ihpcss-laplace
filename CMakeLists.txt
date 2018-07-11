@@ -23,5 +23,8 @@ option(BUILD_TESTS "Enable unit test building" ON)
 # Use GNUInstallDirs to set paths on multiarch systems.
 include(GNUInstallDirs)
 
+# Test and add some extra compiler flags
+include(CompilerFlags)
+
 add_subdirectory(src)
 add_subdirectory(docs)
