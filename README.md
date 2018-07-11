@@ -20,14 +20,14 @@ introduced some reasonable software engineering standards, including
   simpler than Jenkins, and has the advantage of free service for open source projects:
   https://travis-ci.org/eriklindahl/ihpcss-laplace
 * High-level documentation with Sphinx to automatically generate HTML and PDF:
-  http://http://ihpcss-laplace.readthedocs.io/
+  http://ihpcss-laplace.readthedocs.io/
 * Source-code level documentation with Doxygen
 * Unit tests with Google Test (status is reported by Travis CI)
 * I've moved the code to use the C++ compiler (in preparation for refactoring)
 
 All these features have also been integrated in CMake so we check if the 
 necessary tools are available. For full documentation, consult
-the online Sphinx documentation at ReadTheDocs: http://http://ihpcss-laplace.readthedocs.io/
+the online Sphinx documentation at ReadTheDocs: http://ihpcss-laplace.readthedocs.io/
 
 This is of course massive overkill for the simple laplace example. If you want
 to have a look at a real-world example you can check out http://www.gromacs.org, but
