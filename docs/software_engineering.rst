@@ -149,8 +149,27 @@ separate variables corresponding to each build type (where optimization flags go
 
 CMake should make reasonable (actually pretty good) default choices, but you can also set variables manually when invoking CMake. For instance, to choose the Intel C++ compiler and enable FMA, we could do
 
-``cmake -DCXX=icc -DCMAKE_CXX_FLAGS="-mfma" ../ihpcss-laplace``
+``CXX=icc cmake -DCMAKE_CXX_FLAGS="-mfma" ../ihpcss-laplace``
 
+Why do we place CXX first on this line? Well, that isn't really CMake's fault,
+but it has long been a Unix standard that the environment variables ``CC`` and
+``CXX`` point to the C and C++ compilers, respectively. If you rather prefer
+to set the compiler like any other CMake variable, use the CMake flag
+``-DCMAKE_CXX_COMPILER=icc`` instead.
+
+
+Additional CMake Modules
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+As you start adding more features to your CMake configuration, such as the
+OpenACC detection in this example, you will quickly notice that some of those
+features or package-detection modules are only available in very recent
+CMake versions. While you *can* require a more recent version of CMake through
+the cmake_minimum_required() directive, it is usually a better idea to just
+copy the new module (and its dependencies) and put it in our own cmake 
+directory - this way we could add OpenACC detection here without bumping our
+CMake requirements (the average user will not be amused when you ask them to
+update their build tool all the time).
 
 
 Travis Continuous Integration
