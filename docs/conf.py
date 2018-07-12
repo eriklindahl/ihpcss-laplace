@@ -18,14 +18,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'laplace'
-copyright = u'2014-2018, John Urbanic & Erik Lindahl'
-author = u'John Urbanic, Erik Lindahl'
+project = u'software-engineering'
+copyright = u'2014-2018, John Urbanic, Erik Lindahl, Elsa Gonsiorowski'
+author = u'John Urbanic, Erik Lindahl, Gonsiorowski'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'0.1'
+release = u'0.2'
 
 # -- General configuration ---------------------------------------------------
 
@@ -103,8 +103,8 @@ html_static_path = ['_static']
 
 html_context = {
     "display_github": True, # Integrate GitHub
-    "github_user": "eriklindahl", # Username
-    "github_repo": "ihpcss-laplace", # Repo name
+    "github_user": "IHPCSS", # Username
+    "github_repo": "software-engineering", # Repo name
     "github_version": "master", # Version
     "conf_py_path": ".", # Path in the checkout to the docs root
 }
@@ -112,7 +112,7 @@ html_context = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'laplacedoc'
+htmlhelp_basename = 'software-engineeringdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -139,7 +139,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'laplace.tex', u'laplace Documentation',
+    (master_doc, 'software-engineering.tex', u'Software Engineering Documentation',
      u'Erik Lindahl', 'manual'),
 ]
 
@@ -149,7 +149,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'laplace', u'laplace Documentation',
+    (master_doc, 'software-engineering', u'Software Engineering Documentation',
      [author], 1)
 ]
 
@@ -160,8 +160,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'laplace', u'laplace Documentation',
-     author, 'laplace', 'One line description of project.',
+    (master_doc, 'software-engineering', u'Software Engineering Documentation',
+     author, 'software-engineering', 'One line description of project.',
      'Miscellaneous'),
 ]
 

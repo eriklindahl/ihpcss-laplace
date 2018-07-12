@@ -7,7 +7,7 @@ Git & GitHub for source code tracking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The first practice you must adopt is revision control. As you can see from 
-https://github.com/eriklindahl/ihpcss-laplace I too went through a number of 
+https://github.com/IHPCSS/software-engineering I too went through a number of 
 trial-and-error iterations with this repo, and had I not had revision control
 I would repeatedly had the issue of trying to fix errors I introduced. With 
 revision control, I could simply step back to a known-good version instead.
@@ -149,7 +149,7 @@ separate variables corresponding to each build type (where optimization flags go
 
 CMake should make reasonable (actually pretty good) default choices, but you can also set variables manually when invoking CMake. For instance, to choose the Intel C++ compiler and enable FMA, we could do
 
-``CXX=icc cmake -DCMAKE_CXX_FLAGS="-mfma" ../ihpcss-laplace``
+``CXX=icc cmake -DCMAKE_CXX_FLAGS="-mfma" ../software-engineering``
 
 Why do we place CXX first on this line? Well, that isn't really CMake's fault,
 but it has long been a Unix standard that the environment variables ``CC`` and
@@ -252,7 +252,7 @@ in with your GitHub account, and give ReadTheDocs permission to read your reposi
 After this, you can enable ReadTheDocs to automatically build the documentation
 for your repository any time you check in changes to GitHub. This way, anyone
 can read the documentation at a link like 
-https://ihpcss-laplace.readthedocs.io/, and you can even provide separate
+https://software-engineering.readthedocs.io/, and you can even provide separate
 documentation for multiple different versions of the code in parallel. Both
 online and for the local files on your computer, you also have search functionality.
 

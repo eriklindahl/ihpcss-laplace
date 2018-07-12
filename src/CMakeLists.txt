@@ -20,6 +20,6 @@ add_custom_target(check
 configure_file(config.h.cmakein config.h)
 
 
-add_subdirectory(laplace)
+add_subdirectory(software-engineering)
 
 

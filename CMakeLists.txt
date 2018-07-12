@@ -1,6 +1,7 @@
 #
-# Example CMake file for John Urbanic's laplace
-# solver, now using a C++ compiler.
+# Example CMake file for the IHPCSS Software Engineering
+# project, based on John Urbanic's laplace
+# solver ported to use a C++ compiler.
 #
 
 # Make sure we don't have a pre-historic CMake version
@@ -10,7 +11,7 @@ set(CMP0048 NEW)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-project(Laplace VERSION 0.1)
+project(Software-engineering VERSION 0.2)
 set(PROJECT_VERSION_STRING "${PROJECT_VERSION}")
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)

@@ -1,9 +1,9 @@
 # Software Engineering applied to the IHPCSS Laplace code example
 
 ### Current Integration status
-[![Build Status](https://travis-ci.org/eriklindahl/ihpcss-laplace.svg?branch=master)](https://travis-ci.org/eriklindahl/ihpcss-laplace)
+[![Build Status](https://travis-ci.org/IHPCSS/software-engineering.svg?branch=master)](https://travis-ci.org/IHPCSS/software-engineering)
 <br>
-[![Documentation Status](https://readthedocs.org/projects/ihpcss-laplace/badge/?version=latest)](https://ihpcss-laplace.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/software-engineering/badge/?version=latest)](https://software-engineering.readthedocs.io/en/latest/?badge=latest)
 
 # A Template Project for Software Engineering
 As part of the IHPCSS summer school we show you a number of examples of good practice
@@ -18,16 +18,16 @@ introduced some reasonable software engineering standards, including
 * CMake for build configuration
 * Continuous integration with Travis to automatically check your build. Travis is
   simpler than Jenkins, and has the advantage of free service for open source projects:
-  https://travis-ci.org/eriklindahl/ihpcss-laplace
+  https://travis-ci.org/IHPCSS/software-engineering
 * High-level documentation with Sphinx to automatically generate HTML and PDF:
-  http://ihpcss-laplace.readthedocs.io/
+  http://software-engineering.readthedocs.io/
 * Source-code level documentation with Doxygen
 * Unit tests with Google Test (status is reported by Travis CI)
 * I've moved the code to use the C++ compiler (in preparation for refactoring)
 
 All these features have also been integrated in CMake so we check if the 
 necessary tools are available. For full documentation, consult
-the online Sphinx documentation at ReadTheDocs: http://ihpcss-laplace.readthedocs.io/
+the online Sphinx documentation at ReadTheDocs: http://software-engineering.readthedocs.io/
 
 This is of course massive overkill for the simple laplace example. If you want
 to have a look at a real-world example you can check out http://www.gromacs.org, but
