@@ -25,18 +25,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ---------------------------------------------------------------------
 
-To clarify: our wish is that you should be able to use this code in any way
-you want as a template or inspiration for your own project. If you fork it
-to produce modified software engineering tutorial it would be nice if you
-leave the IHPCSS credits, but if you just want to borrow the organization,
-software engineering setup and CMake configuration files, there is no need
-to include any copyright notices whatsoever in your binaries or source code,
-although we always appreciate to know if somebody found it useful!
+The Google Test files in src/external/googletest are copyrighted by Google Inc.,
+and distributed under the BSD 3-clause license as specified in those files.
 
-One caveat: A couple of the modules in the 'cmake' subdirectory are from
-the CMake distribution, and as such BSD-licensed. If that is a concern, you
-can always move those modules to a separate location on your workstation
-(outside of your source tree).
+A few of the modules in the cmake directory are taken from newer versions of
+CMake, and distributed under the BSD 3-clause license as specified in those files.
 
-
+Another few of the cmake modules were adapted from GROMACS by Erik Lindahl,
+but just as the rest of the cmake code they are made available under the more
+permissible BSD 3-clause license here (rather than the usual GROMACS license).
 

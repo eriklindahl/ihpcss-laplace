@@ -1,3 +1,9 @@
+#
+# This file was originally written for GROMACS, but
+# just as the other CMake configuration files you can 
+# redistributed it freely under the BSD 3-clause license.
+#
+
 include(CMakeParseArguments)
 
 function (add_gtest_executable EXENAME)
