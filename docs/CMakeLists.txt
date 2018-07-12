@@ -27,10 +27,15 @@ if(SPHINX_FOUND)
     if(LATEX_FOUND)
         set(PDF_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/pdf")
         file(MAKE_DIRECTORY ${PDF_OUTPUT_DIR})
+        # 
+        # Find the latex source name by parsing conf.py.
+        file(STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/conf.py _tmp_string REGEX "^project.*")
+        # Extract the name inside project = u'<NAME>'
+        string(REGEX REPLACE "project = u'\(.*\)'" "\\1" SPHINX_PROJECT_NAME ${_tmp_string}) 
         # Execute latex command twice to get references correct
         add_custom_target(sphinx-pdf
-                          COMMAND ${PDFLATEX_COMPILER} -output-directory ${PDF_OUTPUT_DIR} laplace.tex
-                          COMMAND ${PDFLATEX_COMPILER} -output-directory ${PDF_OUTPUT_DIR} laplace.tex
+                          COMMAND ${PDFLATEX_COMPILER} -output-directory ${PDF_OUTPUT_DIR} ${SPHINX_PROJECT_NAME}.tex
+                          COMMAND ${PDFLATEX_COMPILER} -output-directory ${PDF_OUTPUT_DIR} ${SPHINX_PROJECT_NAME}.tex
                           DEPENDS sphinx-latex
                           WORKING_DIRECTORY ${LATEX_OUTPUT_DIR}
                           COMMENT "Building PDF documentation from Spinx Latex"
