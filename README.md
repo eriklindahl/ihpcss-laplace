@@ -1,4 +1,4 @@
-# Software Engineering applied to the IHPCSS Laplace code example
+# Software Engineering for the IHPCSS Laplace code
 
 ### Current Integration status
 [![Build Status](https://travis-ci.org/IHPCSS/software-engineering.svg?branch=master)](https://travis-ci.org/IHPCSS/software-engineering)
