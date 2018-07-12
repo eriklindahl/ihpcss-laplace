@@ -22,14 +22,30 @@ set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose type of build, options are: 
 
 option(BUILD_TESTS "Enable unit test building" ON)
 
+option(MPI     "Enable MPI compiler support" OFF)
 option(OPENMP  "Enable OpenMP compiler support" OFF)
 option(OPENACC "Enable OpenACC compiler support" OFF)
 
 # Use GNUInstallDirs to set paths on multiarch systems.
 include(GNUInstallDirs)
 
-# Add the OpenMP compiler flags before other tests, since this might change the
-# behavior on some platforms
+# Add the MPI/OpenMP/OpenACC compiler flags before other tests,
+# since this might change the behavior on some platforms
+
+if(MPI)
+    find_package(MPI)
+    if(MPI_CXX_FOUND)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${MPI_CXX_COMPILE_FLAGS}")
+        include_directories(${MPI_CXX_INCLUDE_PATH})
+        set(CMAKE_EXE_LINKER_FLAGS ${MPI_CXX_LINK_FLAGS})
+        set(CMAKE_SHARED_LINKER_FLAGS ${MPI_CXX_LINK_FLAGS})
+        list(APPEND EXTRA_LIBRARIES ${MPI_CXX_LIBRARIES})
+        set(HAVE_MPI TRUE)
+    else()
+        message(ERROR "MPI support requested, but no compiler support found.")
+    endif()
+endif()
+
 if(OPENMP)
     find_package(OpenMP)
     if(OPENMP_FOUND)
@@ -40,7 +56,6 @@ if(OPENMP)
     endif()
 endif()
 
-# Enable OpenACC support
 if(OPENACC)
     find_package(OpenACC)
     if(OPENACC_CXX_FOUND)
