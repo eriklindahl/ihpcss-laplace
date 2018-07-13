@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# This is a simple template script to run batch jobs on Bridges at PSC
+#
+# You only have to do two things to run an MPI program with it:
+#
+# 1) Make a copy of the script with the same name as your MPI executable,
+#    eg if the executable is 'program' then type: cp mpibatch.job program.job
+#
+# 2) Set the number of MPI processes NPROC (and "-N" if NPROC > 28)
+#
+# To run: sbatch program.pbs
+#
+# All screen output (stdout and stderr) will appear in a file called
+# slurm-XXXXX.out, where XXXXX is the job number assigned at submit time.
+#
+# David Henty, EPCC, 25/06/2017
+#
+
+#SBATCH -p GPU-shared
+#SBATCH --res=ihssgpu
+#SBATCH --gres=gpu:p100:1
+#SBATCH -t 00:10:00
+#SBATCH -N 1
+#SBATCH --ntasks-per-node 28
+
+
+NPROC=28
+
+MPIPROG=`basename $SLURM_JOB_NAME .job`
+MPISIZE=$NPROC
+
+echo '--------------------------------------------------------------------------------'
+
+echo 'Running MPI program' $MPIPROG 'on' $MPISIZE 'processes'
+
+echo 'Started at' `date`
+echo '--------------------------------------------------------------------------------'
+
+(time mpirun -n $MPISIZE ./$MPIPROG) 2>&1
+
+echo '--------------------------------------------------------------------------------'
+echo 'Finished at' `date`
